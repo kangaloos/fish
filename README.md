@@ -1,24 +1,47 @@
-# README
+# <!--釣り好きが使うスポット検索ガイドコミュニティサイト-->
+<!--​READMEを作成する際は、項目内の【補足説明】は削除して完成させてください。-->
+## サイト概要
+### サイトテーマ
+釣りスポットのオススメを共有したり、実際に釣れたことを共有できるコミュニティサイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### テーマを選んだ理由
+父が釣りを趣味にしており、朝早く釣りに行くことが多いのですが、釣れる時と釣れない時の
+差があり、オススメなスポットはどこだろうと言っていたのがきっかけでした。
+釣り好きな人達が集まれるサイトがあれば情報の共有も簡単にでき、時期によっての釣れる、
+釣れないなど知ることができ便利だと思いました。
+また、釣りをしている同士で一緒に行く機会を作れる良いきっかけになると思いこのテーマを選びました。
 
-Things you may want to cover:
 
-* Ruby version
+### ターゲットユーザ
+・釣りに行くにおいて、リアルタイムでの情報が知りたい人
 
-* System dependencies
+・複数人と一緒に行きたいと思っている人
+### 主な利用シーン
+・釣りに行く場所において川の状況、魚がどれだけ釣れているか知りたい時
 
-* Configuration
+・釣りに行く人同士で交流を深めたい時
 
-* Database creation
+・現地の人にしか分からないことを聞きたい時
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
 
-* Database initialization
+##　使用素材
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+
+## 実装機能リストのURL
+https://docs.google.com/spreadsheets/d/1cdtw6llE2TUd0HaEy-fxflxGC9EcZcg3qa0a4CwA6Jg/edit?usp=sharing
+
+
