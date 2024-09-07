@@ -1,1 +1,8 @@
 @use '~bootstrap/scss/bootstrap';
+
+.bg-area {
+  background-image: url(../images/fish.jpg);
+  background-size: cover;
+  height:70vh;
+  background-position: 50% 50%;
+}
