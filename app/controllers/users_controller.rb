@@ -3,13 +3,13 @@ class UsersController < ApplicationController
 
   def  index
     @users = User.all
-    @newbook = Book.new
+    @newpoint = Point.new
   end
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books
-    @newbook = Book.new
+    @points = @user.points
+    @newpoint = Point.new
 
   end
 

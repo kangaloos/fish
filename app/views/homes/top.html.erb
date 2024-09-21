@@ -1,29 +1,24 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
-<div class="jumbotron jumbotron-fluid bg-area">
-  <div class="container">
-    <h1 class="display-4">釣りをする人向けのサイト</h1>
-    <p class="lead">ここでは釣りをして得た情報を共有するサイトです</p>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      
-     
-     
-      <div class="btn-wrapper col-10 mx-auto">
-        
-        
-        
-    
-      
-
+<%= content_for(:bg_area) do %>
+  <div class="jumbotron jumbotron-fluid bg-area">
+    <div class="container">
+      <h1 class="display-4">釣りをする人向けのサイト</h1>
+      <p class="lead">ここでは釣りをして得た情報を共有するサイトです</p>
+      <div style="height:40vh;" class="d-flex align-items-center justify-content-center">
+        <div class="d-flex">
+          <%= link_to "新規作成", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+  
+  <div class="container">
+    <div class="row">
+      <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+        <div class="btn-wrapper col-10 mx-auto">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

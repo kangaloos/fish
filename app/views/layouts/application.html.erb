@@ -35,8 +35,8 @@
               <% end %>
             </li>
                <li class="nav-item">
-               <%= link_to books_path, class: 'nav-link text-light' do %>
-               <i class="fas fa-book-open"></i>Books
+               <%= link_to points_path, class: 'nav-link text-light' do %>
+               <i class="fas fa-point-open"></i>Points
                <% end %>
             </li>
             <li class="nav-item">
@@ -69,9 +69,11 @@
           </div>
         </div>
       </nav>
+      <%= yield(:bg_area) %>
     </header>
     
-    <div class="mt-5">
+    <div class="container mt-5">
+      <%= render "layouts/flash_messages" %>
       <%= yield %>
     </div>
 

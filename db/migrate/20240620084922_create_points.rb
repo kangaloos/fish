@@ -1,6 +1,6 @@
-class CreateBooks < ActiveRecord::Migration[6.1]
+class CreatePoints < ActiveRecord::Migration[6.1]
   def change
-    create_table :books do |t|
+    create_table :points do |t|
 
       t.string :title
       t.string :body
