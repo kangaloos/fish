@@ -79,3 +79,6 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 
+group :development do
+  gem "rails-erd"
+end

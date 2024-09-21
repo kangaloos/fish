@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates:introduction, length: { maximum: 50 }
 
   has_many :points, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
   has_one_attached :profile_image
   
   

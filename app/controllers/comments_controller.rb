@@ -3,6 +3,20 @@ class CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     redirect_back(fallback_location: root_path)
   end
+  
+  def create
+     @post_comment = @post.post_comments.new(comment_params) 
+     if @post_comment.save
+       redirect_to @post
+     else
+       # エラー処理
+     end
+  end
+
+   private
+   def comment_params
+     params.require(:post_comment).permit(:comment)
+   end
 
  private
 

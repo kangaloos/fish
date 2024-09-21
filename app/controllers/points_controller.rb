@@ -26,8 +26,10 @@ if  @point.save
       redirect_to point_path(@point.id)
 else
       @points = Point.all
-      render :index
+      render :show
       @user = current_user
+      
+      
 end
   end
 
@@ -48,7 +50,9 @@ end
     def show
       @point = Point.find(params[:id])
       @user = @point.user
-      @newpoint =Point.new
+      @newpoint = Point.new
+      @point = Point.find(params[:id])
+      @post_comment = PostComment.new  # @post_commentに値を代入している部分
     end
 
   def destroy
@@ -59,9 +63,8 @@ end
 
   private
 
-  def point_params
-    params.require(:point).permit(:title, :body)
+  def 
+  point_params
+  params.fetch(:point, {}).permit(:title, :body)
   end
-
-
 end

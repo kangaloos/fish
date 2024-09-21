@@ -17,6 +17,14 @@
 
 
 
+<div>
+  <%= form_with model: @post_comment, url: post_image_post_comments_path(@point.id) do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+
+
     </th>
 
       <th><%= @point.title %></th>
@@ -32,3 +40,4 @@
     <!--</div>-->
   </div>
 </div>
+
