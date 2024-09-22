@@ -15,7 +15,7 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-3">
-      <%= render 'index', point: @point, user: current_user %>
+      <%= render 'points', point: @point, user: current_user %>
     </div>
     <div class = "col-md-8 offset-md-1">
       <h1>points</h1>
@@ -31,7 +31,7 @@
           <%= link_to user_path(point.user) do %>
           <%= image_tag current_user.get_profile_image %>
           <% end %>
-          
+
           <td><%= link_to point.title, point_path(point.id) %></td>
           <td><%= point.body %></td>
         </tr>
