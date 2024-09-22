@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get  '/home/about' => 'homes#about'
 
 resources :post_images, only: [:new, :create, :index, :show, :destroy] do
-    resources :post_comments, only: [:create]
-    resources :posts do
-     resources :post_comments
-   end
+    resources :post_comments, only: [:create, :destroy]
+    #resources :posts do
+    # resources :post_comments
+    # resources :post_comments, only: [:create, :destroy]
+   #end
   end
 
   resources :users

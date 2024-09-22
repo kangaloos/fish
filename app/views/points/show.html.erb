@@ -14,8 +14,19 @@
       <br><%= @user.name %>
       <% end %>
 
-
-
+<div>
+  <p>コメント件数：<%= @point.post_comments.count %></p>
+  <% @point.post_comments.each do |post_comment| %>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+      <%= link_to "削除", post_image_post_comment_path(post_comment.point, post_comment), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<% if @post_comment.user == current_user %>
+      <%= link_to "削除", point_post_comment_path(point_comment.post_image, post_comment), method: :delete %>
+    <% end %>
 
 <div>
   <%= form_with model: @post_comment, url: post_image_post_comments_path(@point.id) do |f| %>
@@ -33,7 +44,7 @@
           <% if @point.user == current_user %>
       <th><%= link_to "Edit", edit_point_path(@point.id), class: "btn btn-success btn-sm-block" %></th>
       <th><%= link_to "Destroy", point_path(@point), method: :delete, class: "btn btn-danger btn-sm-block" %></th>
-      
+
       <% end %>
     </tr>
     </table>
