@@ -37,13 +37,13 @@
 
 <% if @point.favorited_by?(current_user) %>
     <p>
-      <%= link_to post_image_favorite_path(@point), method: :delete do %>
+      <%= link_to point_favorite_path(@point), method: :delete do %>
         ♥<%= @point.favorites.count %> いいね
       <% end %>
     </p>
     <% else %>
     <p>
-      <%= link_to post_image_favorite_path(@point), method: :post do %>
+      <%= link_to point_favorite_path(@point), method: :post do %>
         ♡<%= @point.favorites.count %> いいね
       <% end %>
     </p>
