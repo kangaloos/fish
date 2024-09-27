@@ -79,7 +79,6 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 gem 'rails_admin'
-gem 'cancancan'
 gem 'rails-i18n'
 
 group :development do
