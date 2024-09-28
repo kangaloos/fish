@@ -80,6 +80,7 @@ gem "net-pop"
 gem "net-imap"
 gem 'rails_admin'
 gem 'rails-i18n'
+gem 'ransack'
 
 group :development do
   gem "rails-erd"

@@ -21,9 +21,11 @@ class User < ApplicationRecord
   profile_image.variant(resize_to_limit: [100, 100]).processed
   end
 
+end
+
   #def admin?
   #  self.admin
   #end
 
   #enum role: { general: 0, admin: 1 }
-end
+

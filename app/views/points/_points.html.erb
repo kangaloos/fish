@@ -13,7 +13,7 @@
       </td>
   </tr>
 
-  <% @points.each do |point| %>
+  <% points.each do |point| %>
     <tr>
       <td> <%= image_tag user.get_profile_image %>
         <%= link_to point.title, point_path(point.id) %></td>
