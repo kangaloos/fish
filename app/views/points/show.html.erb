@@ -1,11 +1,11 @@
 <div class = "row">
     <div class = "col-md-3">
       <%= render 'users/user_info', user: @user %>
-      <h2>New Point</h2>
+      <h2>投稿一覧</h2>
       <%= render 'points/form', point: @newpoint %>
     </div>
     <div class = "col-md-8 offset-md-1">
-      <h2>point detail</h2>
+      <h2>編集画面</h2>
       <table class="table">
     <tr>
     <th>
@@ -14,7 +14,7 @@
       <br><%= @user.name %>
       <% end %>
 
-<div>
+
   <p>コメント件数：<%= @point.post_comments.count %></p>
   <% @point.post_comments.each do |post_comment| %>
     <%= post_comment.user.name %>
@@ -48,8 +48,8 @@
       <% end %>
     </p>
   <% end %>
-  
-  
+
+
 
     </th>
 
@@ -57,8 +57,8 @@
       <th><%= @point.body %></span></th>
       <!--<div class = "container">-->
           <% if @point.user == current_user %>
-      <th><%= link_to "Edit", edit_point_path(@point.id), class: "btn btn-success btn-sm-block" %></th>
-      <th><%= link_to "Destroy", point_path(@point), method: :delete, class: "btn btn-danger btn-sm-block" %></th>
+      <th><%= link_to "編集", edit_point_path(@point.id), class: "btn btn-success btn-sm-block" %></th>
+      <th><%= link_to "削除", point_path(@point), method: :delete, class: "btn btn-danger btn-sm-block" %></th>
 
       <% end %>
     </tr>

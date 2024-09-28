@@ -8,19 +8,19 @@
 <% end %>
 
 
-<h1>Editing point</h1>
+<h1>編集画面</h1>
 
  <%= form_with model: @point  do |f| %>
 
-<h4>Title</h4>
+<h4>タイトル</h4>
  <%= f.text_field :title %>
 
-<h4>Opinion</h4>
+<h4>コメント</h4>
  <%= f.text_area :body %>
 
- <%= f.submit 'Update point' %>
+ <%= f.submit '更新' %>
  <%= link_to "Show", point_path(@point) %>
- <a class="back" href="/points">Back</a>
+ <a class="back" href="/points">戻る</a>
 
 
 

@@ -1,21 +1,22 @@
 <table class="table">
   <tr>
-    <th></th>
+    <%= image_tag user.get_profile_image %>
     <th>タイトル</th>
     <th>コメント</th>
   </tr>
   <tr>
     <td>
+
         <%= link_to user_path(user) do %>
-          <%= image_tag user.get_profile_image %>
+
         <% end %>
       </td>
   </tr>
+
   <% @points.each do |point| %>
     <tr>
-      
-      <td><%= link_to point.title, point_path(point.id) %></td>
+      <td> <%= image_tag user.get_profile_image %>
+        <%= link_to point.title, point_path(point.id) %></td>
       <td><%= point.body %></td>
-    </tr>
   <% end %>
 </table>
