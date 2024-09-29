@@ -1,5 +1,5 @@
 class PostCommentsController < ApplicationController
-
+before_action :authenticate_user!, only: [:destroy]
   def create
     point = Point.find(params[:point_id])
     comment = current_user.post_comments.new(post_comment_params)

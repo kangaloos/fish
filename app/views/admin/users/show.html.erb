@@ -1,0 +1,22 @@
+<h1>show</h1>
+<%= image_tag @user.get_profile_image %>
+<table class="table">
+ <tr>
+ <th>
+名前
+</th>
+<th>
+ <%= @user.name %>
+</th>
+</tr>
+<tr>
+<td>
+ コメント
+</td>
+<td>
+ <%= @user.introduction %>
+</td>
+</tr>
+</table>
+
+
