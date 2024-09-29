@@ -1,0 +1,21 @@
+<h1>グループ名：<%= @group.name %></h1>
+<h2>グループオーナー：<%= @group.owner.name %></h2>
+
+<p><strong>説明:</strong> <%= @group.description %></p>
+
+
+  <% if user_signed_in? %>
+   <% if @group.memberships.exists?(user_id: current_user.id) %>
+    <%= link_to "脱退する",  group_membership_path(@group), method: :delete %>
+  <% else %>
+     <%= link_to "参加する", group_membership_path(@group), method: :post%>
+   <% end %>
+   <% end %>
+ <%= link_to "グループを編集する", edit_group_path(@group.id) %>
+ <%= link_to "グループを削除する", group_path(@group.id), method: :delete, data: {confirm: "本当にグループを消しますか？"} %>
+ <%= link_to '一覧に戻る', groups_index_path %>
+  <h2>グループユーザー</h2>
+   <% @group.memberships.each do |member| %>
+   <p><%= member.user.name %></p>
+  <% end %>
+

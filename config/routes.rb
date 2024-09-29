@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  #devise_for :admins #ここは削除
-  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'groups/new'
+  get 'groups/index'
+  get 'groups/show'
+  get 'groups/edit'
   devise_for :users
+   resources :groups,except: [:index]
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
+
 
   namespace :admin do
     root "dashboards#index"
@@ -15,6 +19,10 @@ Rails.application.routes.draw do
   end
 
   root to: 'homes#top'
+  resources :groups, except: [:index]
+  resources :groups, except: [:index] do
+  resource :membership, only: [:create, :destroy]
+ end
   get  '/home/about' => 'homes#about'
 
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
