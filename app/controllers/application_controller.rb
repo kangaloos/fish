@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_end_user
 
-  before_action :authenticate_user!, except: [:top,:about]
+  #before_action :authenticate_user!, except: [:top,:about]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_end_user
