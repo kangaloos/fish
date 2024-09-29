@@ -81,6 +81,7 @@ gem "net-imap"
 gem 'rails_admin'
 gem 'rails-i18n'
 gem 'ransack'
+gem 'cancancan'
 
 group :development do
   gem "rails-erd"
