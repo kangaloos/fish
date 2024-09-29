@@ -20,3 +20,16 @@
 </table>
 
 
+<table class="table">
+  <tr>
+    <th>タイトル</th>
+    <th>コメント</th>
+  </tr>
+  <% @points.each do |point| %>
+    <tr>
+      <td> <%= image_tag @user.get_profile_image %>
+        <%= link_to point.title, point_path(point.id) %></td>
+      <td><%= point.body %></td>
+  <% end %>
+</table>
+#管理者用のページを作る事

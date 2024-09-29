@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+    layout 'admin'
    before_action :authenticate_admin!
     def destroy
         @user = User.find(params[:id])
@@ -7,5 +8,6 @@ class Admin::UsersController < ApplicationController
     end
     def show
        @user = User.find(params[:id])
+       @points = @user.points
     end
 end

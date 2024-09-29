@@ -8,7 +8,7 @@ class PointsController < ApplicationController
   def edit
 
   end
-  
+
   def create
     @point = Point.new(point_params)
     @point.user_id = current_user.id
@@ -30,7 +30,7 @@ class PointsController < ApplicationController
        render :edit
     end
   end
-  
+
   def index
     @points = Point.all
     @point  = Point.new
@@ -54,7 +54,7 @@ class PointsController < ApplicationController
   def point_params
     params.fetch(:point, {}).permit(:title, :body)
   end
-  
+
   def correct_user
     @point = current_user.points.find_by_id(params[:id])
     unless @point
