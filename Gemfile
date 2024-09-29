@@ -82,7 +82,6 @@ gem "net-imap"
 gem 'rails-i18n'
 gem 'ransack'
 
-
 group :development do
   gem "rails-erd"
 end
