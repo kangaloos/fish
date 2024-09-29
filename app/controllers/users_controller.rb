@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    byebug
+
     @q = Point.where(user_id: @user.id).ransack(params[:q])
     if params[:q].present?
       @points = @q.result(distinct: true)
