@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     root "dashboards#index"
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:destroy]
+    resources :points, only: [:index, :destroy]
+    resources :post_comments, only: [:index, :destroy]
   end
 
   root to: 'homes#top'
