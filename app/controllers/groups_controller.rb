@@ -42,7 +42,7 @@ before_action :owner?, only: [:edit, :update, :destroy]
   def destroy
     group = Group.find(params[:id])
     group.destroy
-    redirect_to root_path
+    redirect_to groups_index_path
   end
 
 private

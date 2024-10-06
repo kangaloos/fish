@@ -17,11 +17,10 @@ Rails.application.routes.draw do
     resources :points, only: [:index, :destroy]
     resources :post_comments, only: [:index, :destroy]
     resources :groups, only: [:index, :destroy]
-    
+
   end
 
   root to: 'homes#top'
-  resources :groups, except: [:index]
   resources :groups, except: [:index] do
   resource :membership, only: [:create, :destroy]
  end
