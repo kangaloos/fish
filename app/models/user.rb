@@ -5,9 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, uniqueness: true
   validates :name, length: { minimum: 2, maximum: 20 }
-  validates :name, presence: true
   validates :description, presence: true
-  validates:introduction, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 50 }
 
   has_many :points, dependent: :destroy
   has_many :post_comments, dependent: :destroy
