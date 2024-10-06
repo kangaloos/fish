@@ -24,6 +24,7 @@ before_action :owner?, only: [:edit, :update, :destroy]
 
   def show
     @group = Group.find(params[:id])
+    @users = @group.users
   end
 
   def edit

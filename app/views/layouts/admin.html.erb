@@ -11,7 +11,7 @@
   <header class="shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand p-3" href="/admin"><i class="fa-solid fa-fish-fins"></i>AdminConsole | 釣り情報サイト</a>
+        <a class="navbar-brand p-3" href="/admin"><i class="fa-solid fa-fish-fins"></i> 釣り情報サイト</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,30 +21,30 @@
             <% if admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to admin_root_path, class: 'nav-link text-light' do  %>
-                 <i class="fas fa-home"></i>users
+                 <i class="fas fa-home"></i>ユーザー
                 <% end %>
               </li>
-              
+
               <li class="nav-item">
                 <%= link_to admin_points_path, class: 'nav-link text-light' do  %>
-                 <i class="fas fa-home"></i>points
+                 <i class="fas fa-home"></i>投稿一覧
                 <% end %>
               </li>
                   <li class="nav-item">
                 <%= link_to admin_post_comments_path, class: 'nav-link text-light' do  %>
-                 <i class="fas fa-home"></i>comments
+                 <i class="fas fa-home"></i>コメント一覧
                 <% end %>
               </li>
-              
+
               <li class="nav-item">
                 <%= link_to admin_groups_path, class: 'nav-link text-light' do  %>
-                 <i class="fas fa-home"></i>groups
+                 <i class="fas fa-home"></i>グループ一覧
                 <% end %>
-              </li>   
-              
+              </li>
+
               <li class="nav-item">
                 <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
-                  <i class="fas fa-sign-out-alt"></i>Log out
+                  <i class="fas fa-sign-out-alt"></i>ログアウト
                 <% end %>
               </li>
             <% end %>
@@ -53,7 +53,7 @@
       </div>
     </nav>
   </header>
-  
+
   <div class="container mt-5">
     <%= render "layouts/flash_messages" %>
     <%= yield %>
