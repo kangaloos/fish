@@ -1,2 +1,25 @@
 <h1>Admin::Points#index</h1>
-<p>Find me in app/views/admin/points/index.html.erb</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th width="100px"></th>
+      <th>タイトル</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= image_tag point.user.get_profile_image %></td>
+        <td><%= point.title %></td>
+        <td><%= point.body %></td>
+        <td>
+          <%= link_to "削除", admin_point_path(point), method: :delete,
+                              data: { confirm: "本当に削除しますか？" },
+                              class: "btn btn-outline-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

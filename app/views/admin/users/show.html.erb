@@ -1,35 +1,33 @@
 <h1>show</h1>
 <%= image_tag @user.get_profile_image %>
-<table class="table">
- <tr>
- <th>
-名前
-</th>
-<th>
- <%= @user.name %>
-</th>
-</tr>
-<tr>
-<td>
- コメント
-</td>
-<td>
- <%= @user.introduction %>
-</td>
-</tr>
-</table>
-
-
+<%= link_to '退会させる', admin_user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
 <table class="table">
   <tr>
-    <th>タイトル</th>
-    <th>コメント</th>
+    <th>名前</th>
+    <td><%= @user.name %></td>
   </tr>
-  <% @points.each do |point| %>
-    <tr>
-      <td> <%= image_tag @user.get_profile_image %>
-        <%= link_to point.title, point_path(point.id) %></td>
-      <td><%= point.body %></td>
-  <% end %>
+  <tr>
+    <th>コメント</th>
+    <td><%= @user.introduction %></td>
+  </tr>
 </table>
-#管理者用のページを作る事
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td>
+          <%= image_tag @user.get_profile_image %>
+          <%= point.title %>
+        </td>
+        <td><%= point.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
