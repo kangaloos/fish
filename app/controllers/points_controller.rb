@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  # 投稿データの保存
+  
   def new
   end
 
@@ -41,7 +41,7 @@ class PointsController < ApplicationController
     @user = @point.user
     @newpoint = Point.new
     @point = Point.find(params[:id])
-    @post_comment = PostComment.new  # @post_commentに値を代入している部分
+    @post_comment = PostComment.new  
   end
 
   def destroy

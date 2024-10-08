@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-private
+  private
 
   def admin_controller?
     self.class.module_parent_name == 'Admin'

@@ -1,71 +1,70 @@
-<div class = "row">
-    <div class = "col-md-3">
-      <%= render 'users/user_info', user: @user %>
-
-
-      <h2>投稿一覧</h2>
-      <%= render 'points/form', point: @newpoint %>
-    </div>
-    <div class = "col-md-8 offset-md-1">
-      <h2>編集画面</h2>
-      <table class="table">
-    <tr>
-    <th>
-      <%= link_to user_path(@point.user) do %>
-      <%= image_tag current_user.get_profile_image %>
-      <br><%= @user.name %>
-      <% end %>
-
-
-  <p>コメント件数：<%= @point.post_comments.count %></p>
-  <% @point.post_comments.each do |post_comment| %>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-    <% if post_comment.user == current_user %>
-<%= link_to "削除", point_post_comment_path(post_comment.point, post_comment), method: :delete %>
+<div class="row">
+  <div class="col-md-3">
+    <%= render 'users/user_info', user: @user %>
+    <%= form_with model: @post_comment, url: point_post_comments_path(@point.id) do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "form-control mt-4" %>
+      <%= f.submit "送信する", class: "btn btn-primary btn-block mt-4" %>
     <% end %>
-  <% end %>
-</div>
-<% if @post_comment.user == current_user %>
-      <%= link_to "削除", point_post_comment_path(point_comment.point, post_comment), method: :delete %>
-    <% end %>
+  </div>
 
-<div>
-  <%= form_with model: @post_comment, url: point_post_comments_path(@point.id) do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
-
-<% if @point.favorited_by?(current_user) %>
-    <p>
-      <%= link_to point_favorite_path(@point), method: :delete do %>
-        ♥<%= @point.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to point_favorite_path(@point), method: :post do %>
-        ♡<%= @point.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-
-
-
-    </th>
-
-      <th><%= @point.title %></th>
-      <th><%= @point.body %></span></th>
-      <!--<div class = "container">-->
-          <% if @point.user == current_user %>
-      <th><%= link_to "編集", edit_point_path(@point.id), class: "btn btn-success btn-sm-block" %></th>
-      <th><%= link_to "削除", point_path(@point), method: :delete, class: "btn btn-danger btn-sm-block" %></th>
-
-      <% end %>
-    </tr>
+  <div class="col-md-8 offset-md-1">
+    <h2>ポイント詳細</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>タイトル</th>
+          <td><%= @point.title %></td>
+        </tr>
+        <tr>
+          <th>説明</th>
+          <td><%= @point.body %></td>
+        </tr>
+      </tbody>
     </table>
-    <!--</div>-->
+    <% if @point.favorited_by?(current_user) %>
+      <p>
+        <%= link_to point_favorite_path(@point), method: :delete do %>
+          ♥<%= @point.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to point_favorite_path(@point), method: :post do %>
+          ♡<%= @point.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% end %>
+    <% if @point.user == current_user %>
+      <%= link_to "編集", edit_point_path(@point.id), class: "btn btn-success btn-sm-block" %>
+      <%= link_to "削除", point_path(@point), method: :delete, class: "btn btn-danger btn-sm-block" %>
+    <% end %>
+
+    <h2 class="mt-4">コメント一覧</h2>
+    <p>コメント件数：<%= @point.post_comments.count %></p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ユーザー</th>
+          <th>コメント</th>
+          <th>投稿日時</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @point.post_comments.each do |post_comment| %>
+          <tr>
+            <td><%= post_comment.user.name %></td>
+            <td><%= post_comment.comment %></td>
+            <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+            <td>
+              <% if post_comment.user == current_user %>
+                <%= link_to "削除", point_post_comment_path(post_comment.point, post_comment), method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
